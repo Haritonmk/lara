@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <title>Lara</title>
-
-    <!-- CSS и JavaScript -->
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css'>
+<link href="css/app.css" rel='stylesheet' type='text/css'>
+@stack('scripts')
   </head>
 
   <body>
