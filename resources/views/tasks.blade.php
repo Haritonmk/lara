@@ -22,7 +22,7 @@
         <!-- Button add task -->
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-6">
-                <button type="submit" class="btn btn-default">
+                <button type="submit" class="btn btn-default" name="addTask">
                     <i class="fa fa-plus"></i> Add task
                 </button>
             </div>
