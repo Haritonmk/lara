@@ -20,6 +20,11 @@ class LearnController extends Controller
     {
         return view('learn');
     }
+    
+    public function listCategory()
+    {
+        return view('list');
+    }
 
     /**
      * Show the form for creating a new resource.
