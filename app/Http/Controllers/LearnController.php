@@ -25,6 +25,11 @@ class LearnController extends Controller
     {
         return view('list');
     }
+    
+    public function phrase()
+    {
+        return view('phrase');
+    }
 
     /**
      * Show the form for creating a new resource.

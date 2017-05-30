@@ -20,5 +20,7 @@ Route::get('/tasks', 'TaskController@index');
 Route::post('/task', 'TaskController@store');
 Route::delete('/task/{task}', 'TaskController@destroy');
 Route::get('/learn/list-category', 'LearnController@listCategory');
+Route::get('/learn/phrase', 'LearnController@phrase');
 Route::resource('learn', 'LearnController');
 Route::resource('categories', 'CategoriesController');
+Route::controller('words', 'WordController');
