@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<script src="../js/vue.min.js"></script>
+<script src="<?=asset('js/vue.min.js');?>"></script>
 <!-- v-html="this.$options.filters.unescape(words[currentCategory][currentWord]['auth']+'<br/>'+words[currentCategory][currentWord]['qeng'])" -->
 <div id="panel_learn">
     <modal v-if="showModal" @close="showModal = false;shown = false">
