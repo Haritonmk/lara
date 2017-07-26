@@ -6,8 +6,10 @@
 <div id="panel_learn" class="container">
     <div class="col-sm-6">
         <div id="phrase">@{{phrase}}</div>
-        <textarea v-model.trim="translatePhrase"></textarea><br />
+        <textarea v-model.trim="translatePhrase" style="width: 100%;"></textarea><br /><br />
         <button @click="newPhrase()" class="btn btn-primary">New Phrase</button>
+        <button @click="viewPhrase()" class="btn btn-warning">View Phrase</button>
+        <div v-show="open">@{{correctTranslate}}</div>
     </div>
     <div class="col-sm-6">
         <div v-html="this.$options.filters.correct(translatePhrase,correctTranslate)">@{{translatePhrase | correct:correctTranslate}}</div>
@@ -28,7 +30,8 @@
         data: {
             phrase: '',
             translatePhrase: '',
-            correctTranslate: ''
+            correctTranslate: '',
+            open: false
         },
         created: function (){
            this.newPhrase(); 
@@ -41,10 +44,14 @@
                         this.phrase = response.body.qrus;
                         var qeng = response.body.qeng
                         this.correctTranslate = qeng.trim();
+                        this.open = false;
                     }
                   }, response => {
                     console.log(response);
                   });
+            },
+            viewPhrase: function(){
+                this.open = !this.open;
             }
         }
     });
