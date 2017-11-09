@@ -54,7 +54,7 @@
             open: false
         },
         created: function (){
-           this.newPhrase(); 
+           this.newPhrase();
         },
         methods: {
             newPhrase: function(){
@@ -77,7 +77,7 @@
             }
         }
     });
-    
+
     if ([].indexOf) {
         var findAR = function(array, value) {
           return array.indexOf(value);
