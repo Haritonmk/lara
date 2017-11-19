@@ -21,6 +21,8 @@ Route::post('/task', 'TaskController@store');
 Route::delete('/task/{task}', 'TaskController@destroy');
 Route::get('/learn/list-category', 'LearnController@listCategory');
 Route::get('/learn/phrase', 'LearnController@phrase');
+Route::get('/learn/articles', 'LearnController@articles');
 Route::resource('learn', 'LearnController');
 Route::resource('categories', 'CategoriesController');
 Route::controller('words', 'WordController');
+Route::resource('articles','ArticleController');

@@ -12,18 +12,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">--}}
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="<?=asset('css/bootstrap.css');?>">
+    <link rel="stylesheet" href="<?=asset('css/app.css');?>">
 
-    <style>
-        body {
-            font-family: 'Lato';
-        }
-
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>
+    <!-- Scripts -->
+    <script src="<?=asset('js/vue.min.js');?>"></script>
+    <script src="<?=asset('js/vue-resource.js');?>"></script>
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">

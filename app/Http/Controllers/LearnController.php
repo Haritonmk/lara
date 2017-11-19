@@ -18,17 +18,22 @@ class LearnController extends Controller
      */
     public function index()
     {
-        return view('learn');
+        return view('learn\learn');
     }
-    
+
     public function listCategory()
     {
-        return view('list');
+        return view('learn\list');
     }
-    
+
     public function phrase()
     {
-        return view('phrase');
+        return view('learn\phrase');
+    }
+
+    public function articles()
+    {
+      return view('learn\articles');
     }
 
     /**
