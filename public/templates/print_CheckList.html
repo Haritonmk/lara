@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CheckList</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        
+<style>
+<!--
+
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+        color: #000000;
+}
+body {
+	margin: 20px;
+	padding: 0px;
+	background-color:#FFFFFF;
+}
+.clear{ clear:both;}        
+-->
+</style>        
+    </head>
+    <body>
+        
+        <center>
+            <table border="1" width="650px" cellpadding="5" cellspacing="0">
+                <tr>
+                    <td  align="right">List name:</td>
+                    <td align="left"><b>{LIST_NAME}</b></td>
+                </tr>
+                <tr>
+                    <td width="20%" align="right">Business date:</td>
+                    <td align="left"><b>{BUSINESS_DATE}</b></td>
+                </tr>
+                <tr>
+                    <td width="20%" align="right">Printed by:</td>
+                    <td align="left">{PRINTED_BY}</td>
+                </tr>
+                <tr>
+                    <td width="20%" align="right">Printed date:</td>
+                    <td align="left">{PRINTED_DATE}</td>
+                </tr>
+            </table>
+        </center>
+
+        <div style="height: 20px"></div>
+        <center>
+            <table border="1" width="650px" cellpadding="3" cellspacing="0">
+                {LIST_HEADER}
+                {LIST_BODY}
+            </table>
+        </center>
+    
+<SCRIPT LANGUAGE="JavaScript"> 
+    window.print();
+</script>    
+    
+    </body>
+</html>

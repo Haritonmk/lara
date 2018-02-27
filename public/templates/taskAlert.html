@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+<!--
+
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+        color: #000000;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color:#FFFFFF;
+}
+.clear{ clear:both;}        
+-->
+
+</style>        
+    </head>
+    <body 
+        bgcolor="#ffffff" 
+        style="font-family: Tahoma, Arial, Helvetica, sans-serif;font-size: 12px;">
+
+        <div>
+        <i>Wiadomość wygenerowana automatycznie - proszę na nią nie odpowiadać</i>
+        </div>
+        <br/>
+
+        <table border="1" width="800px" cellpadding="5" cellspacing="0">
+            <tr>
+                <td ><b>Lista kontrolna:</b></td>
+                <td ><a href="{LIST_LINK}">{LIST_NAME}</a></td>
+            </tr>
+            <tr>
+                <td ><b>Data:</b></td>
+                <td >{LIST_DATE}</td>
+            </tr>
+        </table>
+        
+        <br/>
+        <br/>
+        
+        <table border="1" width="800px" cellpadding="5" cellspacing="0">
+            <tr>
+                <td ><b>Lp.</b></td>
+                <td ><b>Nazwa zadania</b></td>
+                <td ><b>Max termin wykonania</b></td>
+            </tr>
+            {BODY}
+        </table>
+
+
+    </body>
+</html>

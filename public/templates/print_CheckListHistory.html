@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CheckList</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        
+<style>
+<!--
+
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+        color: #000000;
+}
+body {
+	margin: 20px;
+	padding: 0px;
+	background-color:#FFFFFF;
+}
+.clear{ clear:both;}        
+-->
+</style>        
+    </head>
+    <body>
+        
+        <center>
+            <table border="1" width="100%" cellpadding="5" cellspacing="0">
+                <tr>
+                    <td width="20%" align="right">List name:</td>
+                    <td align="left"><b>{LIST_NAME}</b></td>
+                </tr>
+                <tr>
+                    <td width="20%" align="right">Business date:</td>
+                    <td align="left"><b>{BUSINESS_DATE}</b></td>
+                </tr>
+                <tr>
+                    <td width="20%" align="right">Printed by:</td>
+                    <td align="left">{PRINTED_BY}</td>
+                </tr>
+                <tr>
+                    <td width="20%" align="right">Printed date:</td>
+                    <td align="left">{PRINTED_DATE}</td>
+                </tr>
+            </table>
+        </center>
+
+        <div style="height: 20px"></div>
+        <center>
+            <table border="1" width="100%" cellpadding="5" cellspacing="0">
+                <tr>
+                    <td align="left"><b>No.</b></td>
+                    <td align="left"><b>Date</b></td>
+                    <td align="left"><b>User</b></td>
+                    <td align="left"><b>Event</b></td>
+                    <td align="left"><b>Addidional info</b></td>
+                </tr>
+                {LIST_BODY}
+            </table>
+        </center>
+    
+<SCRIPT LANGUAGE="JavaScript"> 
+    window.print();
+</script>    
+    
+    </body>
+</html>
