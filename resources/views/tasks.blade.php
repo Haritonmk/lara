@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="x_panel">
 <div class="panel-body">
     <!-- view errors -->
     @include('errors.errors')
@@ -71,4 +71,5 @@
     </div>
 </div>
 @endif
+</div>
 @endsection

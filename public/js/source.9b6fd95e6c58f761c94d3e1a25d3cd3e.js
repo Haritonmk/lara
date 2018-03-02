@@ -27700,3 +27700,7 @@ module.exports = function(Chart) {
 };
 
 },{"moment":1}]},{},[7]);
+
+(function ($) {
+    $('.select2').select2();
+})(jQuery);

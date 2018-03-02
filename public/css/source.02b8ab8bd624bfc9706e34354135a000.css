@@ -753,6 +753,36 @@
   .daterangepicker .calendar.left {
     clear: none !important; } }
 
+html,body {
+  height: 100%;
+}
+
+body {
+    font-family: 'Lato';
+}
+
+.fa-btn {
+    margin-right: 6px;
+}
+
+.edit-wrapper {
+  width: 100%;
+  resize: none;
+  height: 100%;
+  border: none;
+}
+
+#panel_learn {
+  height: 100%;
+}
+
+.red {
+    color: #dd0000;
+}
+.green {
+    color: #009926;
+}
+
 .log-emergency {
     background-color: #B71C1C;
 }

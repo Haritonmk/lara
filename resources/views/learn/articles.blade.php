@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div id="panel_learn" class="container">
+<div id="panel_learn" class="x_panel">
     <div class="col-sm-12" v-if="showCategory">
       <table class="table">
         <thead>

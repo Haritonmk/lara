@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div id="panel_learn" class="container">
+<div id="panel_learn" class="x_panel">
     <div class="col-sm-6">
         <div id="phrase">@{{phrase}}</div>
         <textarea v-model.trim="translatePhrase" style="width: 100%;"></textarea><br /><br />

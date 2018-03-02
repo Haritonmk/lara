@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- v-html="this.$options.filters.unescape(words[currentCategory][currentWord]['auth']+'<br/>'+words[currentCategory][currentWord]['qeng'])" -->
-<div id="panel_learn">
+<div id="panel_learn" class="x_panel">
     <modal v-if="showModal" @close="showModal = false;shown = false">
         <h3 slot="header">@{{words[currentCategory][currentWord]['eng']}}</h3>
         <div slot="body" v-html="this.$options.filters.unescape(words[currentCategory][currentWord]['qeng'])" >@{{ words[currentCategory][currentWord]['auth'] | unescape }} <br /> @{{words[currentCategory][currentWord]['qeng'] | unescape}}</div>
