@@ -8,7 +8,8 @@ use App\Http\Requests;
 
 class LearnController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
     }
     /**
@@ -33,7 +34,7 @@ class LearnController extends Controller
 
     public function articles()
     {
-      return view('learn\articles');
+        return view('learn\articles');
     }
 
     /**
