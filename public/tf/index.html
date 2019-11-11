@@ -11,7 +11,7 @@
 
       // Define a model for linear regression.
       const model = tf.sequential();
-      model.add(tf.layers.dense({units: 1, inputShape: [6,2]}));
+      model.add(tf.layers.dense({units: 1, inputShape: 1}));
 
       // Prepare the model for training: Specify the loss and the optimizer.
       model.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
@@ -20,10 +20,10 @@
       //const xs = tf.tensor1d([-1, 0, 1, 2, 3, 4]);
       //const ys = tf.tensor1d([-2, 1, 4, 7, 10, 13]);
 		const xArray = [
-			[[1,1], [2,1], [3,1], [4,1], [5,1], [6,1]],
-			[[1,0], [2,0], [3,0], [4,0], [5,0], [6,0]],
-			[[1,1], [2,0], [3,1], [4,0], [5,1], [6,0]],
-			[[1,0], [2,1], [3,0], [4,1], [5,0], [6,1]]
+			[1, 1, 1, 1, 1, 1],
+			[0, 0, 0, 0, 0, 0],
+			[1, 0, 1, 0, 1, 0],
+			[0, 1, 0, 1, 0, 1]
 		];//,[4,6,2]
 		const yArray = [1, 2, 3, 4];
 		const xDataset = tf.data.array(xArray);
@@ -43,7 +43,7 @@
       model.fitDataset(xyDataset, {epochs: 100}).then(() => {
         // Use the model to do inference on a data point the model hasn't seen before:
         // Open the browser devtools to see the output
-        model.predict(tf.tensor([[[1,0], [2,0], [3,0], [4,0], [5,0], [6,0]]])).print(true);
+        model.predict(tf.tensor([0, 0, 0, 0, 0, 0])).print(true);
 		model.summary();
       });
     </script>
