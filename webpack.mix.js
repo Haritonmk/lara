@@ -51,6 +51,11 @@ mix.scripts([
     'node_modules/gentelella/vendors/bootstrap-daterangepicker/daterangepicker.js',
 
     'node_modules/gentelella/vendors/Chart.js/dist/Chart.js',
+
+    'node_modules/gentelella/vendors/pnotify/dist/pnotify.js',
+    'node_modules/gentelella/vendors/pnotify/dist/pnotify.buttons.js',
+    'node_modules/gentelella/vendors/pnotify/dist/pnotify.nonblock.js',
+    'node_modules/gentelella/vendors/skycons/skycons.js'
   ], 'public/js/source.js').version();
 
   mix.scripts([
@@ -62,6 +67,9 @@ mix.scripts([
     'node_modules/select2/dist/css/select2.css',
     'node_modules/gentelella/vendors/bootstrap-daterangepicker/daterangepicker.css',
     'resources/assets/css/app.css',
+    'node_modules/gentelella/vendors/pnotify/dist/pnotify.css',
+    'node_modules/gentelella/vendors/pnotify/dist/pnotify.buttons.css',
+    'node_modules/gentelella/vendors/pnotify/dist/pnotify.nonblock.css'
   ], 'public/css/source.css').version();
 /*	mix.scripts([
 		'node_modules/jquery/dist/jquery.js',
