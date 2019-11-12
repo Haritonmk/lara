@@ -11,41 +11,68 @@
 
     <!-- Place your code in the script tag below. You can also use an external .js file -->
     <script>
-	const options = {
-	  inputs: 6,
-	  outputs: 1,
-	  task:'classification',
-	  debug: true
-	}
-	const neuralNetwork = ml5.neuralNetwork(options);
+	// Initialize the the neural network
+/*const neuralNetwork = ml5.neuralNetwork(1, 1);
 
-
-    neuralNetwork.data.addData( [1, 1, 1, 1, 1, 1], [1]);
-	neuralNetwork.data.addData( [0, 0, 0, 0, 0, 0], [2]);
-	neuralNetwork.data.addData( [1, 0, 1, 0, 1, 0], [3]);
-	neuralNetwork.data.addData( [0, 1, 0, 1, 0, 1], [4]);
+// add in some data
+for(let i = 0; i < 100; i+=1){
+    const x = i;
+    const y = i * 2;
+    neuralNetwork.data.addData( [x], [y])
+}
 
 // normalize your data
 neuralNetwork.data.normalize();
 // train your model
-const trainingOptions = {
-    epochs: 500,
-    batchSize: 20
-  };
-neuralNetwork.train(trainingOptions, finishedTraining);
+neuralNetwork.train(finishedTraining);
 
 // when it is done training, run .predict()
-function finishedTraining(){//predict
-    neuralNetwork.classify( [0, 1, 0, 1, 0, 1], (err, results) => {
-		//if (err) console.log(err);
-		/*if (results) {
-			console.log(results[0].value);
-			results.tensor.print();
-		}*/
-		console.log(err);
-		console.log(results);
+function finishedTraining(){
+    neuralNetwork.predict( [50], (err, results) => {
+        console.log(results);
     })
-}
+}*/
+	const options = {
+	  inputs: 6,
+	  outputs: 1,
+	  task:'classification',//classification regression
+	  debug: true,
+	  modelLoss: 'categoricalCrossentropy',
+	  //modelOptimizer: 'adam',
+	  activationHidden: 'softmax',
+      activationOutput: 'softmax'
+	}
+	let neuralNetwork;
+	function setup(){
+		createCanvas(400, 400);
+		neuralNetwork = ml5.neuralNetwork(options);
+
+
+		neuralNetwork.addData( [1, 0, 1, 1, 1, 1], ['1']);
+		neuralNetwork.addData( [0, 0, 1, 0, 0, 0], ['2']);
+		neuralNetwork.addData( [1, 0, 1, 0, 1, 0], ['3']);
+		neuralNetwork.addData( [0, 1, 0, 1, 0, 1], ['4']);
+
+		// normalize your data
+		//neuralNetwork.data.normalize();
+		neuralNetwork.normalizeData();
+		// train your model
+		const trainingOptions = {
+			epochs: 300,
+			batchSize: 6
+		  };
+	  
+		neuralNetwork.train(trainingOptions, finishedTraining);
+	}
+	// when it is done training, run .predict()
+	function finishedTraining(){//predict  classify
+		neuralNetwork.predict( [0, 1, 0, 1, 0, 1], (err, results) => {
+			//if (err) console.log(err);
+			//console.log(err);
+			console.log(results);
+			results.tensor.print();
+		})
+	}
  </script>
   </head>
 

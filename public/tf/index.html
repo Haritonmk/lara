@@ -11,20 +11,29 @@
 
       // Define a model for linear regression.
       const model = tf.sequential();
-      model.add(tf.layers.dense({units: 1, inputShape: 1}));
+      model.add(tf.layers.dense({units: 4, inputShape: 6, activation: 'relu'}));
+	  //model.add(tf.layers.dense({units: 4, inputShape: [4,6]}));
 
       // Prepare the model for training: Specify the loss and the optimizer.
-      model.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
+      model.compile(//{loss: 'meanSquaredError', optimizer: 'sgd'});
+{loss: 'categoricalCrossentropy', optimizer: 'adam', metrics: ['acc']});
 
       // Generate some synthetic data for training.
       //const xs = tf.tensor1d([-1, 0, 1, 2, 3, 4]);
       //const ys = tf.tensor1d([-2, 1, 4, 7, 10, 13]);
+		const xs = tf.tensor([
+			[1, 1, 1, 1, 1, 1],
+			[0, 0, 0, 0, 0, 0],
+			[1, 0, 1, 0, 1, 0],
+			[0, 1, 0, 1, 0, 1]
+		], [4,6]);
 		const xArray = [
 			[1, 1, 1, 1, 1, 1],
 			[0, 0, 0, 0, 0, 0],
 			[1, 0, 1, 0, 1, 0],
 			[0, 1, 0, 1, 0, 1]
 		];//,[4,6,2]
+		const ys = tf.tensor([1, 2, 3, 4],[4,1]);
 		const yArray = [1, 2, 3, 4];
 		const xDataset = tf.data.array(xArray);
 		const yDataset = tf.data.array(yArray);
@@ -36,16 +45,26 @@
 		// The call to `shuffle(4)` causes each iteration through the dataset to
 		// happen in a different order.  The size of the shuffle window is 4.
 		const xyDataset = tf.data.zip({xs: xDataset, ys: yDataset})
-			.batch(4);
-			//.shuffle(4);
-	//xyDataset.forEachAsync(e => console.log(JSON.stringify(e)));
-      // Train the model using the data.
-      model.fitDataset(xyDataset, {epochs: 100}).then(() => {
-        // Use the model to do inference on a data point the model hasn't seen before:
-        // Open the browser devtools to see the output
-        model.predict(tf.tensor([0, 0, 0, 0, 0, 0])).print(true);
-		model.summary();
-      });
+			.batch(6);
+			//.shuffle(6);
+		//xyDataset.forEachAsync(e => console.log(JSON.stringify(e)));
+		xyDataset.forEachAsync(e => console.log(e));
+		// Train the model using the data.
+		//xs.print();
+		//ys.print();
+		//for (let i = 1; i < 5 ; ++i) {
+			model.fitDataset(xyDataset, {epochs: 100}).then((h) => {//, validationBatchSize: 6, batchSize: 6
+				// Use the model to do inference on a data point the model hasn't seen before:
+				// Open the browser devtools to see the output
+				predictions = model.predict(tf.tensor([0, 1, 0, 1, 0, 1],[1,6]));//.print(true);
+				predictions.print();
+				predictions.max().print();/**/
+				//model.summary();
+				console.log(h.history.loss);
+			});
+			//console.log(h);
+			//console.log("Loss after Epoch " + i + " : " + h.history.loss[0]);
+		//}
     </script>
   </head>
 
