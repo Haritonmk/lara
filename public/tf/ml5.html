@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -6,7 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
 	<!-- ml5 -->
-   <script src="https://unpkg.com/ml5@0.4.2/dist/ml5.min.js"></script>
+   <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
 
 
     <!-- Place your code in the script tag below. You can also use an external .js file -->
@@ -33,14 +34,14 @@ function finishedTraining(){
     })
 }*/
 	const options = {
-	  inputs: 6,
-	  outputs: 1,
+	  inputs: ['Q1','Q2','Q3','Q4','Q5','Q6'],//6,
+	  outputs: ['type'],//1,
 	  task:'classification',//classification regression
 	  debug: true,
-	  modelLoss: 'categoricalCrossentropy',
+	  modelLoss: 'categoricalCrossentropy'//,
 	  //modelOptimizer: 'adam',
-	  activationHidden: 'softmax',
-      activationOutput: 'softmax'
+	  //activationHidden: 'softmax',
+      //activationOutput: 'softmax'
 	}
 	let neuralNetwork;
 	function setup(){
@@ -48,29 +49,33 @@ function finishedTraining(){
 		neuralNetwork = ml5.neuralNetwork(options);
 
 
-		neuralNetwork.addData( [1, 0, 1, 1, 1, 1], ['1']);
-		neuralNetwork.addData( [0, 0, 1, 0, 0, 0], ['2']);
-		neuralNetwork.addData( [1, 0, 1, 0, 1, 0], ['3']);
-		neuralNetwork.addData( [0, 1, 0, 1, 0, 1], ['4']);
+		/*neuralNetwork.addData( ['1', '0', '1', '1', '1', '1'], ['1']);
+		neuralNetwork.addData( ['0', '0', '1', '0', '0', '0'], ['2']);
+		neuralNetwork.addData( ['1', '0', '1', '0', '1', '0'], ['3']);
+		neuralNetwork.addData( ['0', '1', '0', '1', '0', '1'], ['4']);*/
+		neuralNetwork.addData( {'Q1':'1', 'Q2':'0', 'Q3':'1', 'Q4':'1', 'Q5':'1', 'Q6':'1'}, {'type':'P1'});
+		neuralNetwork.addData( {'Q1':'0', 'Q2':'0', 'Q3':'1', 'Q4':'0', 'Q5':'0', 'Q6':'0'}, {'type':'P2'});
+		neuralNetwork.addData( {'Q1':'1', 'Q2':'0', 'Q3':'1', 'Q4':'0', 'Q5':'1', 'Q6':'0'}, {'type':'P3'});
+		neuralNetwork.addData( {'Q1':'0', 'Q2':'1', 'Q3':'0', 'Q4':'1', 'Q5':'0', 'Q6':'1'}, {'type':'P4'});
 
 		// normalize your data
 		//neuralNetwork.data.normalize();
 		neuralNetwork.normalizeData();
 		// train your model
 		const trainingOptions = {
-			epochs: 300,
+			epochs: 160,
 			batchSize: 6
 		  };
 	  
 		neuralNetwork.train(trainingOptions, finishedTraining);
 	}
 	// when it is done training, run .predict()
-	function finishedTraining(){//predict  classify
-		neuralNetwork.predict( [0, 1, 0, 1, 0, 1], (err, results) => {
+	function finishedTraining(){//predict  classify predictMultiple classifyMultiple
+		neuralNetwork.predict( {'Q1':'0', 'Q2':'1', 'Q3':'0', 'Q4':'1', 'Q5':'0', 'Q6':'1'}, (err, results) => {
 			//if (err) console.log(err);
 			//console.log(err);
 			console.log(results);
-			results.tensor.print();
+			//results.tensor.print();
 		})
 	}
  </script>
