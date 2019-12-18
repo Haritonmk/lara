@@ -6,15 +6,15 @@ $handle = fopen("tags.txt", "r");
 <table>
 <tbody>
 <?
-var $rowBr = false;
+$rowBr = false;
 while (!feof($handle)) {
 	if(!$rowBr){
-		echo "<tr>"
+		echo "<tr>";
 	}
     $buffer = fgets($handle);
     echo "<td>".$buffer."</td>";
 	if($rowBr){
-		echo "</tr>"
+		echo "</tr>";
 	}
 	$rowBr = !$rowBr;
 }
